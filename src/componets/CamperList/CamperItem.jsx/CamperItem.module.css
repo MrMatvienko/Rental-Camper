@@ -7,20 +7,59 @@
 }
 .imageItem {
   border-radius: 10px;
-  width: 290px;
+  width: 70%;
   height: auto;
+  object-fit: cover;
+  object-position: 80% 50%;
+  overflow: hidden;
 }
 
 .infoContainer {
   margin-left: 24px;
+  width: 100%;
 }
 .info1 {
   display: flex;
+  text-align: center;
   justify-content: space-between;
+  height: 30px;
+  margin-bottom: 8px;
 }
+.fistLineInfo {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
 .info2 {
   display: flex;
+  margin-bottom: 24px;
+  gap: 16px;
 }
+
+.description {
+  margin-bottom: 24px;
+}
+.listDateils {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 8px;
+  margin-bottom: 24px;
+}
+.camperDetailsItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  color: var(--main);
+  border-radius: 100px;
+  padding: 12px 18px;
+  width: auto;
+  background: var(--block-features);
+}
+
 .showBtn {
   border-radius: 200px;
   padding: 16px 40px;
@@ -33,6 +72,7 @@
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.01em;
+  cursor: pointer;
 }
 
 .showBtn:hover,
