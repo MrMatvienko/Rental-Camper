@@ -3,7 +3,7 @@ import CSS from "./VehicleTypeType.module.css";
 const VehicleTypeType = () => {
   return (
     <div className={CSS.typeContainer}>
-      <h2 className={CSS.title}>Vehicle equipment</h2>
+      <h2 className={CSS.title}>Vehicle type</h2>
       <ul className={CSS.typetList}>
         <li className={CSS.typetItem}>
           <svg className={CSS.icon}>
