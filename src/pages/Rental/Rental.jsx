@@ -11,11 +11,15 @@ const Rental = () => {
     setSelectedCamper(camper);
     setShowModal(!showModal);
   };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <div className={CSS.rentalContainer}>
       <Filter />
       <CamperList toggleModal={toggleModal} />
-      {showModal && <Modal camper={selectedCamper} />}
+      {showModal && <Modal camper={selectedCamper} onClose={closeModal} />}
     </div>
   );
 };

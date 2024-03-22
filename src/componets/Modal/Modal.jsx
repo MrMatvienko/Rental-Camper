@@ -1,22 +1,47 @@
 import CSS from "./Modal.module.css";
-const Modal = ({ camper }) => {
+import sprite from "../../images/sprite.svg";
+import { useEffect } from "react";
+const Modal = ({ camper, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
     <>
-      <div className={CSS.modalBackdrop}></div>
+      <div className={CSS.modalBackdrop} onClick={handleBackdropClick}></div>
       <div className={CSS.modalContainer}>
-        <h2 className={CSS.title}>{camper.name}</h2>
-        <div>
-          <p>Rating: {camper.rating}</p>
-          <p>Location: {camper.location}</p>
+        <div className={CSS.firstLine}>
+          <h2 className={CSS.title}>{camper.name}</h2>
+          <svg className={CSS.icon} onClick={onClose}>
+            <use href={sprite + "#icon-close"} />
+          </svg>
         </div>
-        <p>Price: €{camper.price}</p>
+        <div className={CSS.secondLine}>
+          <p> {camper.rating}</p>
+          <p> {camper.location}</p>
+        </div>
+        <p> €{camper.price}</p>
         <div className={CSS.imageContainer}>
           {camper.gallery.map((image, index) => (
             <img
               className={CSS.image}
               key={index}
               src={image}
-              alt={`Camper Preview ${index + 1}`}
+              alt="Camper Preview"
             />
           ))}
         </div>

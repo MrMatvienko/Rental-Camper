@@ -26,6 +26,23 @@
 .title {
   margin: 0;
 }
+.icon {
+  width: 32px;
+  height: 32px;
+}
+.firstLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--main);
+}
+.secondLine {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--main);
+}
+
 .imageContainer {
   display: flex;
   width: 100%;

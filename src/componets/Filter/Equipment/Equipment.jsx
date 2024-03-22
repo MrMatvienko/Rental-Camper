@@ -1,5 +1,4 @@
 import sprite from "../../../images/sprite.svg";
-import condishin from "../../../images/condishin.svg";
 import CSS from "./Equipment.module.css";
 const Equipment = () => {
   return (
@@ -8,7 +7,7 @@ const Equipment = () => {
       <ul className={CSS.equipmentList}>
         <li className={CSS.equipmentItem}>
           <svg className={CSS.icon}>
-            <use href={condishin} />
+            <use href={sprite + "#icon-condishin"} />
           </svg>
           <p className={CSS.textIcon}>AC</p>
         </li>
