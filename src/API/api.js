@@ -7,3 +7,9 @@ export const getAdvertList = async () => {
 
   return data;
 };
+
+export const getAdvertItem = async (_id) => {
+  const { data } = await axios.get(`/advert/${_id}`);
+  console.log(data);
+  return data;
+};

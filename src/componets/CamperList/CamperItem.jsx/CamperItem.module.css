@@ -7,11 +7,10 @@
 }
 .imageItem {
   border-radius: 10px;
-  width: 70%;
-  height: auto;
+  width: 290px;
+  height: 310px;
   object-fit: cover;
-  object-position: 80% 50%;
-  overflow: hidden;
+  object-position: 60% 50%;
 }
 
 .infoContainer {
@@ -31,7 +30,6 @@
   line-height: 1.25;
   color: var(--main);
 }
-
 .info2 {
   display: flex;
   margin-bottom: 24px;

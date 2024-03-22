@@ -3,7 +3,7 @@ import CamperItem from "./CamperItem.jsx/CamperItem";
 import CSS from "./CamperList.module.css";
 import { getAdvertList } from "../../API/api";
 
-const CamperList = () => {
+const CamperList = ({ toggleModal }) => {
   const [camperData, setCamperData] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,11 @@ const CamperList = () => {
     <div className={CSS.camperList}>
       {camperData.length > 0 ? (
         camperData.map((camper) => (
-          <CamperItem key={camper._id} camper={camper} />
+          <CamperItem
+            key={camper._id}
+            camper={camper}
+            toggleModal={toggleModal}
+          />
         ))
       ) : (
         <p>Loading...</p>

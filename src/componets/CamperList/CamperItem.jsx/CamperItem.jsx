@@ -1,7 +1,7 @@
 import CSS from "./CamperItem.module.css";
-const CamperItem = ({ camper }) => {
-  const firstImage = camper.gallery[0];
 
+const CamperItem = ({ camper, toggleModal }) => {
+  const firstImage = camper.gallery[0];
   const text = camper.description.split(" ").slice(0, 11).join(" ");
 
   return (
@@ -37,8 +37,17 @@ const CamperItem = ({ camper }) => {
           {camper.details.TV === 1 && (
             <li className={CSS.camperDetailsItem}>TV </li>
           )}
+          {camper.details.airConditioner === 1 && (
+            <li className={CSS.camperDetailsItem}>AC </li>
+          )}
         </ul>
-        <button className={CSS.showBtn}>Show more</button>
+        <button
+          type="button"
+          onClick={() => toggleModal(camper)}
+          className={CSS.showBtn}
+        >
+          Show more
+        </button>
       </div>
     </div>
   );
