@@ -1,29 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CamperItem from "../../componets/CamperList/CamperItem.jsx/CamperItem";
-import { nanoid } from "nanoid";
 
 const Favorites = () => {
-  const [favorites, setFavorites] = useState([]);
+  const [favoriteCampers, setFavoriteCampers] = useState([]);
 
-  const addFavorites = (camper) => {
-    const camperWithId = { ...camper, _id: nanoid() };
-    setFavorites((prevFavorites) => [...prevFavorites, camperWithId]);
-  };
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavoriteCampers(favorites);
+  }, []);
 
-  const removeFavorites = (id) => {
-    const updatedFavorites = favorites.filter((fav) => fav._id !== id);
-    setFavorites(updatedFavorites);
+  const removeFromFavorites = (id) => {
+    const updatedFavorites = favoriteCampers.filter((camp) => camp !== id);
+    setFavoriteCampers(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   return (
     <div>
-      {favorites.map((favCamper) => (
+      {favoriteCampers.map((camperId) => (
         <CamperItem
-          key={favCamper._id}
-          camper={favCamper}
-          toggleModal={() => {}}
-          addToFavorites={addFavorites}
-          removeFromFavorites={removeFavorites}
+          key={camperId}
+          camper={camperId}
+          removeFromFavorites={removeFromFavorites}
         />
       ))}
     </div>

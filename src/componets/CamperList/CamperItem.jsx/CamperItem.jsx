@@ -1,19 +1,13 @@
 import CSS from "./CamperItem.module.css";
 import sprite from "../../../images/sprite.svg";
 import { useEffect, useState } from "react";
-const CamperItem = ({
-  camper,
-  toggleModal,
-  addToFavorites,
-  removeFromFavorites,
-}) => {
+const CamperItem = ({ camper, toggleModal, removeFromFavorites }) => {
   const [heartColor, setHeartColor] = useState("#FFFFFF");
-
   const firstImage = camper.gallery[0];
   const text = camper.description.split(" ").slice(0, 11).join(" ");
 
   useEffect(() => {
-    const savedHeartColor = localStorage.getItem(`Color_${camper._id}`);
+    const savedHeartColor = localStorage.getItem(`${camper._id}`);
     if (savedHeartColor) {
       setHeartColor(savedHeartColor);
     }
@@ -22,11 +16,10 @@ const CamperItem = ({
   const handleHeartClick = () => {
     const newColor = heartColor === "#FF0000" ? "#FFFFFF" : "#FF0000";
     setHeartColor(newColor);
-    localStorage.setItem(`Color_${camper._id}`, newColor);
-    console.log(camper._id);
-    if (newColor === "#FF0000") {
-      addToFavorites(camper);
-    } else {
+    localStorage.setItem(`${camper._id}`, newColor);
+
+    if (newColor === "#FFFFFF") {
+      // Видаляємо кемпера зі списку улюблених, якщо колір був змінений на білий
       removeFromFavorites(camper._id);
     }
   };
