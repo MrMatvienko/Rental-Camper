@@ -1,8 +1,8 @@
 import { useState } from "react";
-import CamperList from "../../componets/CamperList/CamperList";
 import Filter from "../../componets/Filter/Filter";
 import Modal from "../../componets/Modal/Modal";
 import CSS from "./Rental.module.css";
+import CamperList from "../../componets/CamperList/CamperList";
 const Rental = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedCamper, setSelectedCamper] = useState(null);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import CamperItem from "./CamperItem.jsx/CamperItem";
 import CSS from "./CamperList.module.css";
 import { getAdvertList } from "../../API/api";
+import CamperItem from "./CamperItem/CamperItem";
 
 const CamperList = ({ toggleModal }) => {
   const [camperData, setCamperData] = useState([]);
@@ -15,7 +15,6 @@ const CamperList = ({ toggleModal }) => {
         console.error("Error fetching camper data:", error);
       }
     };
-
     fetchCamperData();
   }, []);
 
